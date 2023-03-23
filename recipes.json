@@ -1,0 +1,8 @@
+{
+  "run_list": [
+    "recipe[nagios3::default]",
+    "recipe[nagios3::nagios_check]",
+    "recipe[nagios3::nagios_client]",
+    "recipe[nagios3::nagios_server]"
+  ]
+}
