@@ -8,6 +8,7 @@
 #
 
 log "platform: #{node['platform']}"
+log "platform: #{node['platform_family']}"
 
 if node['platform_family'] == 'debian' && \
    node['platform'] == 'ubuntu' && \
@@ -263,17 +264,17 @@ when 'debian'
   end
 
 when 'centos'
-#  # define graphed-service
-#  template "/etc/#{node['nagios']['nagios_name']}/objects/templates.cfg" do
-#    source 'redhat_templates.cfg.erb'
-#    owner 'root'
-#    group 'root'
-#    mode 0644
-#    notifies :restart, "service[#{node['nagios']['nagios_name']}]", :delayed
+   # define graphed-service
+ template "/etc/#{node['nagios']['nagios_name']}/objects/templates.cfg" do
+   source 'redhat_templates.cfg.erb'
+   owner 'root'
+    group 'root'
+   mode 0644
+    notifies :restart, "service[#{node['nagios']['nagios_name']}]", :delayed
   end
-#else
-#  Chef::Application.fatal!("Need to customize for OS of #{node['platform_family']}")
-#end
+else
+ Chef::Application.fatal!("Need to customize for OS of #{node['platform_family']}")
+end
 
 ############################# Enable vhost ################################
 #link "/etc/#{node['nagios']['apache_name']}/conf-enabled/nagios3.conf" do
