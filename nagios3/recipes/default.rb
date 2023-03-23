@@ -10,7 +10,7 @@
 case node['platform_family']
 when 'debian'
   include_recipe 'apt'
-when 'fedora', 'rhel', 'suse'
+when 'fedora', 'rhel', 'suse' , 'amazon'
   #include_recipe 'yum-epel'
   %w(nagios nagios-plugins-all).each do |x|
     package x do
