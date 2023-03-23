@@ -8,7 +8,7 @@
 #
 
 log "platform: #{node['platform']}"
-log "platform: #{node['platform_family']}"
+log "platform_family: #{node['platform_family']}"
 
 if node['platform_family'] == 'debian' && \
    node['platform'] == 'ubuntu' && \
