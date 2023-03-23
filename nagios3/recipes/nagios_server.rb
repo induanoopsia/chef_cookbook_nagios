@@ -62,13 +62,13 @@ when 'debian'
   end
 
 
-when 'fedora', 'rhel', 'suse'
+when 'fedora', 'rhel', 'suse' , 'amazon'
   package 'httpd'
   service 'httpd' do
   action [:enable, :start]
   end
 
-when 'fedora', 'rhel', 'suse'
+when 'fedora', 'rhel', 'suse' , 'amazon'
   %w(nagios nagios-plugins-all).each do |x|
     yum_package x do
       action :install
@@ -262,7 +262,7 @@ when 'debian'
     notifies :restart, "service[#{node['nagios']['nagios_name']}]", :delayed
   end
 
-when 'fedora', 'rhel', 'suse'
+when 'fedora', 'rhel', 'suse', 'amazon'
 #  # define graphed-service
 #  template "/etc/#{node['nagios']['nagios_name']}/objects/templates.cfg" do
 #    source 'redhat_templates.cfg.erb'
