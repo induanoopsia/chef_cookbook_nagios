@@ -6,7 +6,7 @@
 #
 # Apache License, Version 2.0
 #
-
+log "platform-indu: #{node['platform']}"
 case node['platform_family']
 when 'debian'
   include_recipe 'apt'
