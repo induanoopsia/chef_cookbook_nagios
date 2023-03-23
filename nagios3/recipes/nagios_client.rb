@@ -16,7 +16,7 @@ when 'debian'
       not_if "dpkg -l #{x} | grep -E '^ii'"
     end
   end
-when 'fedora', 'rhel', 'suse'
+when 'centos'
   %w(nagios-plugins-nrpe nagios-plugins-all nrpe).each do |x|
     yum_package x do
       action :install
